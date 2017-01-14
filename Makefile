@@ -16,7 +16,17 @@ OBJS =	check_last_newline.o \
 		error_message_no_newline.o \
 		validator.o \
 		check_lines.o \
-		check_symb.o
+		check_symb.o \
+		main.o
+
+SRC =	check_last_newline.c \
+		check_rows.c \
+		check_tetriminos.c \
+		error_message_no_newline.c \
+		validator.c \
+		check_lines.c \
+		check_symb.c \
+		main.c
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -25,7 +35,7 @@ NAME = fillit
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc $(FLAGS) 
+	gcc $(FLAGS) $(SRC) -o $(NAME)
 
 check_last_newline.o: check_last_newline.c
 	@gcc -c $(FLAGS) check_last_newline.c
@@ -47,6 +57,12 @@ check_lines.o: check_lines.c
 
 check_symb.o: check_symb.c
 	@gcc -c $(FLAGS) check_symb.c
+
+main.o: main.c
+	@gcc -c $(FLAGS) main.c
+
+fclean:
+	rm $(NAME) $(OBJS)
 
 clean:
 	rm $(OBJS)

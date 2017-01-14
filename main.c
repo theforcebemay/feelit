@@ -14,9 +14,6 @@
 
 int		main(int argc, char **argv)
 {
-	char *str;
-
-	str = argv[1];
 	if (argc != 2)
 		error_message_no_newline("usage: ./fillit [reading_file]\n");
 	if (validator(argv[1]) == 1)
